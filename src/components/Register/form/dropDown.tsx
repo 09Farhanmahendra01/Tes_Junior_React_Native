@@ -1,22 +1,34 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet} from 'react-native';
 
-import DropDownPicker from 'react-native-dropdown-picker';
+import DropDownPicker, {ItemType} from 'react-native-dropdown-picker';
 import {appColors} from '../../../theme/appColors';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {get_dataProvinsi} from '../../../utils/get_dataProvinsi';
 
+// type
+type Item = {
+  id: number;
+  label: string;
+  value: string;
+};
 interface props {
   placeHolder: string;
   zIndex: number;
+  items: Item[];
+  onSelectItem: (value: ItemType<string>) => void;
 }
-const Component_dropDown: React.FC<props> = ({placeHolder, zIndex}) => {
+const Component_dropDown: React.FC<props> = ({
+  placeHolder,
+  zIndex,
+  items,
+  onSelectItem,
+}) => {
+  // state
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
-    {label: 'Apple', value: 'apple'},
-    {label: 'Banana', value: 'banana'},
-  ]);
+
   return (
     <DropDownPicker
       open={open}
@@ -24,7 +36,7 @@ const Component_dropDown: React.FC<props> = ({placeHolder, zIndex}) => {
       items={items}
       setOpen={setOpen}
       setValue={setValue}
-      setItems={setItems}
+      onSelectItem={onSelectItem}
       style={styles.dropDown}
       textStyle={styles.text}
       labelStyle={styles.label}
