@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
     height: hp('3.1%'),
   },
   title: {
-    fontSize: hp('3%'),
+    fontSize: hp('2.3%'),
     color: appColors.warna_putih,
   },
   deskripsi: {
     color: appColors.warna_abu,
-    fontSize: hp('1.8%'),
+    fontSize: hp('1.3%'),
   },
 });
 export default Header;

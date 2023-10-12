@@ -4,12 +4,18 @@ import React from 'react';
 import {appColors} from '../../../theme/appColors';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-const Component_TextInput = () => {
+type props = {
+  onChangeText: (value: string) => void;
+  value: string;
+};
+const Component_TextInput: React.FC<props> = ({onChangeText, value}) => {
   return (
     <TextInput
+      value={value}
       placeholder="Nama Lengkap"
       placeholderTextColor={appColors.warna_putih}
       style={styles.textInput}
+      onChangeText={onChangeText}
     />
   );
 };
@@ -24,6 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingLeft: 12,
     marginBottom: 15,
+    fontSize: hp('1.4%'),
   },
 });
 export default Component_TextInput;

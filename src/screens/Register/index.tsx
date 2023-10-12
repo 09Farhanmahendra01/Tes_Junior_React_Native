@@ -8,6 +8,7 @@ import {styles} from '../../styles/Register';
 import Header from '../../components/Register/header';
 import Form from '../../components/Register/form';
 import Button_Register from '../../components/Register/buttonRegister';
+import Loading_register from '../../components/Register/loading_register';
 
 const Register = () => {
   return (
@@ -18,6 +19,8 @@ const Register = () => {
       <Form />
       {/* Button Register */}
       <Button_Register />
+      {/* loading register */}
+      <Loading_register />
     </View>
   );
 };

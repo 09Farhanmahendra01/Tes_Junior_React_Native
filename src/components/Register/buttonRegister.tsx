@@ -1,16 +1,36 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {appColors} from '../../theme/appColors';
+import {useDispatch, useSelector} from 'react-redux';
+import {register} from '../../utils/register';
 
 const Button_Register = () => {
+  // redux
+  const dispatch = useDispatch();
+  // nama user,provinsi,kota,kecamatan yang di pilih
+  const nama_user = useSelector((value: any) => value.Data_register.nama_user);
+  const nama_provinsi = useSelector(
+    (value: any) => value.Data_register.nama_provinsi_yangDipilih,
+  );
+  const nama_kota = useSelector(
+    (value: any) => value.Data_register.nama_kota_yangDipilih,
+  );
+  const nama_kecamatan = useSelector(
+    (value: any) => value.Data_register.nama_kecamatan_yangDipilih,
+  );
+
+  // handler register
+  const handler_register = () => {
+    register(nama_user, nama_provinsi, nama_kota, nama_kecamatan, dispatch);
+  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handler_register()}>
         <Text style={styles.text}>Register</Text>
       </TouchableOpacity>
     </View>

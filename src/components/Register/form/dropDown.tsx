@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     marginBottom: 15,
   },
-  text: {color: appColors.warna_hitam},
+  text: {color: appColors.warna_hitam, fontSize: hp('1.4%')},
   label: {
     color: appColors.warna_putih,
     fontWeight: 'bold',
-    fontSize: hp('2.1%'),
+    fontSize: hp('1.4%'),
   },
   placeHolder: {color: appColors.warna_putih, fontWeight: '400'},
 });
